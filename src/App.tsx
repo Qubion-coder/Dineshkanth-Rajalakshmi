@@ -808,27 +808,27 @@ export default function WeddingInvitation() {
                     <div className="font-cinzel">
                       <p className="text-lg md:text-base text-stone-700 tracking-[0.2em] md:tracking-[0.3em] font-bold">27 AUGUST 2026</p>
                     </div>
-                  </motion.div>
-                </div>
-              </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 2.2, duration: 1 }}
-                onClick={() => {
-                  window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
-                }}
-                className="absolute bottom-[12vh] md:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center cursor-pointer z-30 group"
-              >
-                <div className="flex flex-col items-center justify-center bg-white/95 backdrop-blur-md px-6 py-2.5 rounded-[2rem] shadow-[0_8px_25px_-5px_rgba(245,158,11,0.4)] border-2 border-amber-300/80 hover:bg-white hover:scale-105 hover:shadow-[0_10px_30px_-5px_rgba(245,158,11,0.6)] transition-all duration-300">
-                  <span className="text-[10px] md:text-[11px] uppercase tracking-[0.25em] text-amber-700 font-extrabold mb-0.5">Scroll Down</span>
-                  <motion.div
-                    animate={{ y: [0, 5, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                    className="text-amber-600"
-                  >
-                    <ChevronDown className="w-5 h-5 md:w-6 md:h-6 drop-shadow-sm" />
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 2.2, duration: 1 }}
+                      onClick={() => {
+                        window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+                      }}
+                      className="mt-3 flex flex-col items-center cursor-pointer z-30 group"
+                    >
+                      <div className="flex flex-col items-center justify-center bg-white/95 backdrop-blur-md px-6 py-2.5 rounded-[2rem] shadow-[0_8px_25px_-5px_rgba(245,158,11,0.4)] border-2 border-amber-300/80 hover:bg-white hover:scale-105 hover:shadow-[0_10px_30px_-5px_rgba(245,158,11,0.6)] transition-all duration-300">
+                        <span className="text-[10px] md:text-[11px] uppercase tracking-[0.25em] text-amber-700 font-extrabold mb-0.5">Scroll Down</span>
+                        <motion.div
+                          animate={{ y: [0, 5, 0] }}
+                          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                          className="text-amber-600"
+                        >
+                          <ChevronDown className="w-5 h-5 md:w-6 md:h-6 drop-shadow-sm" />
+                        </motion.div>
+                      </div>
+                    </motion.div>
                   </motion.div>
                 </div>
               </motion.div>
