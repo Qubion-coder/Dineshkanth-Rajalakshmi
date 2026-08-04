@@ -818,14 +818,14 @@ export default function WeddingInvitation() {
                       }}
                       className="mt-3 flex flex-col items-center cursor-pointer z-30 group"
                     >
-                      <div className="flex flex-col items-center justify-center bg-white/95 backdrop-blur-md px-6 py-2.5 rounded-[2rem] shadow-[0_8px_25px_-5px_rgba(245,158,11,0.4)] border-2 border-amber-300/80 hover:bg-white hover:scale-105 hover:shadow-[0_10px_30px_-5px_rgba(245,158,11,0.6)] transition-all duration-300">
-                        <span className="text-[10px] md:text-[11px] uppercase tracking-[0.25em] text-amber-700 font-extrabold mb-0.5">Scroll Down</span>
+                      <div className="flex flex-col items-center justify-center bg-white/95 backdrop-blur-md px-3 py-1.5 md:px-6 md:py-2.5 rounded-[2rem] shadow-[0_8px_25px_-5px_rgba(245,158,11,0.4)] border md:border-2 border-amber-300/80 hover:bg-white hover:scale-105 hover:shadow-[0_10px_30px_-5px_rgba(245,158,11,0.6)] transition-all duration-300">
+                        <span className="text-[9px] md:text-[11px] uppercase tracking-[0.25em] text-amber-700 font-extrabold mb-0 md:mb-0.5">Scroll Down</span>
                         <motion.div
                           animate={{ y: [0, 5, 0] }}
                           transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
                           className="text-amber-600"
                         >
-                          <ChevronDown className="w-5 h-5 md:w-6 md:h-6 drop-shadow-sm" />
+                          <ChevronDown className="w-4 h-4 md:w-6 md:h-6 drop-shadow-sm" />
                         </motion.div>
                       </div>
                     </motion.div>
