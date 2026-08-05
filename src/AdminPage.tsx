@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 
 export default function AdminPage() {
-  const [language, setLanguage] = useState<'english' | 'sinhala'>('english');
   const [prefix, setPrefix] = useState('Mr.');
   const [customPrefix, setCustomPrefix] = useState('');
   const [guestName, setGuestName] = useState('');
-  const [inviteType, setInviteType] = useState('ඔබ සැමට');
   const [copiedLink, setCopiedLink] = useState(false);
   const [copiedMessage, setCopiedMessage] = useState(false);
 
@@ -13,12 +11,10 @@ export default function AdminPage() {
 
   const generateLink = () => {
     const origin = window.location.origin;
-    const path = language === 'sinhala' ? '/sinhala' : '/';
-    const url = new URL(path, origin);
+    const url = new URL('/', origin);
     const finalPrefix = getFinalPrefix();
     if (finalPrefix) url.searchParams.set('prefix', finalPrefix);
     if (guestName) url.searchParams.set('guestName', guestName);
-    if (language === 'sinhala') url.searchParams.set('inviteType', inviteType);
     return url.toString();
   };
 
@@ -34,11 +30,7 @@ export default function AdminPage() {
 
   const generateMessage = () => {
     const finalPrefix = getFinalPrefix();
-    if (language === 'english') {
-      return `Dear ${finalPrefix} ${guestName} ❤️\n\nWith joyful hearts, we warmly invite you to celebrate one of the most special days of our lives as we begin our journey together.\n\nPlease view our wedding invitation and all the event details through the link below 🌐:\n\n${generateLink()}\n\nYour presence would truly mean the world to us, and we would be honored to celebrate this beautiful moment together.\n\nWith love,\n❤️ Ramessh Kanna & Thismila`;
-    } else {
-      return `ආදරණීය ${finalPrefix} ${guestName} ❤️\n\nඅපගේ ජීවිතයේ සුවිශේෂීම දිනයක් වන අපගේ විවාහ මංගල්‍යයට සහභාගී වන ලෙස අපි ${inviteType} ආදරයෙන් ආරාධනා කර සිටින්නෙමු.\n\nපහත link එක හරහා අපගේ විවාහ මංගල්‍යයේ ආරාධනා පත සහ සියලු විස්තර නරඹන්න 🌐:\n\n${generateLink()}\n\nඔබගේ පැමිණීම අපට මහත් ආශිර්වාදයක් වනු ඇත.\n\nආදරයෙන්,\n❤️ Ramessh Kanna & Thismila`;
-    }
+    return `💍✨ Dear ${finalPrefix} ${guestName},\n\nYou're warmly invited to celebrate our special day with us! ❤️\n\n🌸 View our wedding invitation here:\n${generateLink()}\n\nWe can't wait to celebrate with you! 🥂💖\n\nRamesh kanna & Thismila ❤️`;
   };
 
   const handleCopyMessage = async () => {
@@ -61,23 +53,6 @@ export default function AdminPage() {
         </div>
         <div className="mt-8 space-y-6">
           <div className="rounded-md shadow-sm space-y-4">
-            
-            {/* Language Selection */}
-            <div className="flex justify-center space-x-4 pb-2 border-b border-gray-200">
-              <button
-                onClick={() => setLanguage('english')}
-                className={`px-4 py-2 text-sm font-medium rounded-md ${language === 'english' ? 'bg-amber-100 text-amber-700' : 'text-gray-500 hover:text-gray-700'}`}
-              >
-                English
-              </button>
-              <button
-                onClick={() => setLanguage('sinhala')}
-                className={`px-4 py-2 text-sm font-medium rounded-md ${language === 'sinhala' ? 'bg-amber-100 text-amber-700' : 'text-gray-500 hover:text-gray-700'}`}
-              >
-                Sinhala
-              </button>
-            </div>
-
             <div>
               <label htmlFor="prefix" className="block text-sm font-medium text-gray-700">Select Prefix</label>
               <select
@@ -123,21 +98,6 @@ export default function AdminPage() {
               />
             </div>
 
-            {language === 'sinhala' && (
-              <div>
-                <label htmlFor="inviteType" className="block text-sm font-medium text-gray-700">Invite Type (Sinhala)</label>
-                <select
-                  id="inviteType"
-                  value={inviteType}
-                  onChange={(e) => setInviteType(e.target.value)}
-                  className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-amber-500 focus:border-amber-500 sm:text-sm rounded-md border"
-                >
-                  <option value="ඔබට">ඔබට (You - Single)</option>
-                  <option value="ඔබ දෙපලට">ඔබ දෙපලට (You both - Couple)</option>
-                  <option value="ඔබ සැමට">ඔබ සැමට (You all - Family)</option>
-                </select>
-              </div>
-            )}
           </div>
 
           <div className="pt-4 space-y-3">
