@@ -29,8 +29,17 @@ export default function AdminPage() {
   };
 
   const generateMessage = () => {
-    const finalPrefix = getFinalPrefix();
-    return `💍✨ Dear ${finalPrefix} ${guestName},\n\nYou're warmly invited to celebrate our special day with us! ❤️\n\n🌸 View our wedding invitation here:\n${generateLink()}\n\nWe can't wait to celebrate with you! 🥂💖\n\nRamesh kanna & Thismila ❤️`;
+    let finalPrefix = getFinalPrefix();
+    if (finalPrefix === 'Dear') {
+       finalPrefix = '';
+    } else {
+       finalPrefix = finalPrefix + ' ';
+    }
+    
+    // Clean up extra spaces if prefix is empty
+    const greetingName = `${finalPrefix}${guestName}`.trim();
+    
+    return `💍✨ Dear ${greetingName},\n\nYou're warmly invited to celebrate our special day with us! ❤️\n\n🌸 View our wedding invitation here:\n${generateLink()}\n\nWe can't wait to celebrate with you! 🥂💖\n\nRamessh Kanna & Thismila ❤️`;
   };
 
   const handleCopyMessage = async () => {
