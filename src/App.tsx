@@ -372,11 +372,37 @@ function RsvpSection() {
   const [name, setName] = useState("");
   const [attending, setAttending] = useState<"yes" | "no" | null>(null);
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name.trim() || !attending) return;
-    setSubmitted(true);
+    
+    setIsSubmitting(true);
+    try {
+      // Replace this URL with your deployed Google Apps Script Web App URL
+      const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwZOtoemHr9Wg3q3FgXXwrB7ezk5Oqx2ORRh7VIkPSQDM587-J13mVmKfJ-8fYCcjwR7Q/exec";
+      
+      await fetch(SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          formType: "RSVP",
+          name: name,
+          attending: attending,
+          timestamp: new Date().toLocaleString()
+        }),
+      });
+      
+      setSubmitted(true);
+    } catch (error) {
+      console.error("Error submitting RSVP:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -439,10 +465,10 @@ function RsvpSection() {
                 <div className="pt-6">
                   <button
                     type="submit"
-                    disabled={!name.trim() || !attending}
+                    disabled={isSubmitting || !name.trim() || !attending}
                     className="w-full bg-gradient-to-r from-[#c49a45] to-[#e0c086] text-white py-4 rounded-full font-bold uppercase tracking-[0.2em] text-[10px] md:text-xs hover:from-[#e0c086] hover:to-[#c49a45] transition-all duration-300 shadow-lg shadow-amber-500/20 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    Submit RSVP
+                    {isSubmitting ? "Submitting..." : "Submit RSVP"}
                   </button>
                 </div>
               </form>
@@ -530,9 +556,28 @@ function WelcomeSection({ guestFullName }: { guestFullName?: string | null }) {
           <div className="text-stone-700 font-montserrat text-sm md:text-base leading-loose max-w-3xl mx-auto space-y-12">
 
             <div className="space-y-4 md:space-y-6 pt-2">
+              {guestFullName && (
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2, duration: 0.8 }}
+                  className="mb-8 flex flex-col items-center justify-center"
+                >
+                  <span className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-amber-600 font-bold mb-3">Joyfully Inviting</span>
+                  <span className="font-playball text-3xl md:text-5xl text-theme-900 text-gold-shiny drop-shadow-sm px-4 text-center leading-tight">
+                    {guestFullName}
+                  </span>
+                  <div className="flex items-center gap-2 mt-4 opacity-70">
+                    <div className="h-px w-8 md:w-16 bg-gradient-to-r from-transparent to-amber-400" />
+                    <div className="w-1.5 h-1.5 rotate-45 bg-amber-500" />
+                    <div className="h-px w-8 md:w-16 bg-gradient-to-l from-transparent to-amber-400" />
+                  </div>
+                </motion.div>
+              )}
               <p className="px-2 md:px-16 text-stone-600 font-light leading-loose text-xs md:text-base">
                 {guestFullName ? (
-                  <>Dear <span className="font-semibold text-amber-700">{guestFullName}</span>, we cordially solicit your esteemed presence and blessing with family and friends on the auspicious occasion of the marriage of</>
+                  <>We cordially solicit your esteemed presence and blessing with family and friends on the auspicious occasion of the marriage of</>
                 ) : (
                   <>Cordially solicit your esteemed presence and blessing with family and friends on the auspicious occasion of the marriage of</>
                 )}

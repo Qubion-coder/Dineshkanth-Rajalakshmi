@@ -31,15 +31,15 @@ export default function AdminPage() {
   const generateMessage = () => {
     let finalPrefix = getFinalPrefix();
     if (finalPrefix === 'Dear') {
-       finalPrefix = '';
+      finalPrefix = '';
     } else {
-       finalPrefix = finalPrefix + ' ';
+      finalPrefix = finalPrefix ? finalPrefix + ' ' : '';
     }
-    
+
     // Clean up extra spaces if prefix is empty
     const greetingName = `${finalPrefix}${guestName}`.trim();
-    
-    return `💍✨ Dear ${greetingName},\n\nYou're warmly invited to celebrate our special day with us! ❤️\n\n🌸 View our wedding invitation here:\n${generateLink()}\n\nWe can't wait to celebrate with you! 🥂💖\n\nRamessh Kanna & Thismila ❤️`;
+
+    return `Dear ${greetingName} ❤️\n\nWith joyful hearts, we warmly invite you to celebrate one of the most special days of our lives as we begin our journey together.\n\nPlease view our wedding invitation and all the event details through the link below 🌐:\n\n${generateLink()}\n\nYour presence would truly mean the world to us, and we would be honored to celebrate this beautiful moment together.\n\nWith love,\n❤️ Dineshkanth & Rajalakshmi`;
   };
 
   const handleCopyMessage = async () => {
@@ -94,7 +94,7 @@ export default function AdminPage() {
                 />
               </div>
             )}
-            
+
             <div>
               <label htmlFor="guestName" className="block text-sm font-medium text-gray-700">Guest Name</label>
               <input
