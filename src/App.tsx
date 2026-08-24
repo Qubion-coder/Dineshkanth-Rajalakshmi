@@ -952,7 +952,7 @@ export default function WeddingInvitation() {
       {!isOpened && <div className="absolute inset-0 bg-[#f0eceb]/65 pointer-events-none z-0" />}
       <MandalaFrame minimal={isLowPerformanceMode} />
       <FloatingPetals disabled={isLowPerformanceMode} />
-      <AudioPlayer isPlaying={isOpened} src="/background new.mp3" />
+      <AudioPlayer isPlaying={isOpened || isVideoPlaying} src="/background new.mp3" />
 
       <AnimatePresence mode="wait">
         {!isOpened && !isVideoPlaying ? (
