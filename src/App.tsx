@@ -480,14 +480,14 @@ function RsvpSection() {
               <div className="w-2 h-2 rotate-45 bg-amber-200" />
             </div>
 
-            <div className="flex-1 space-y-4">
-              <strong className="text-theme-900 text-[10px] md:text-sm uppercase tracking-[0.2em] block mb-4">Mr. & Mrs. Nallarasu</strong>
-              <p className="text-stone-500 leading-loose text-xs md:text-sm font-medium">
+            <div className="flex-1 space-y-4 flex flex-col items-center">
+              <strong className="text-theme-900 text-[10px] md:text-sm uppercase tracking-[0.2em] block mb-4 text-center">Mr. & Mrs. Nallarasu</strong>
+              <p className="text-stone-500 leading-loose text-xs md:text-sm font-medium text-center">
                 No. 15/1, Vimaladharma Mawatha,<br />
                 Badulla.
               </p>
               <div className="pt-2">
-                <a href="tel:0770752976" className="inline-block px-6 py-2 bg-white rounded-full border border-amber-200 text-amber-700 font-semibold tracking-widest text-[10px] md:text-xs hover:bg-amber-50 transition-colors shadow-sm">
+                <a href="tel:0770752976" className="inline-block px-6 py-2 bg-white rounded-full border border-amber-200 text-amber-700 font-semibold tracking-widest text-[10px] md:text-xs hover:bg-amber-50 transition-colors shadow-sm text-center">
                   077 - 0752976
                 </a>
               </div>
@@ -496,14 +496,14 @@ function RsvpSection() {
             <div className="hidden md:block w-px h-24 bg-gradient-to-b from-transparent via-amber-200 to-transparent" />
             <div className="md:hidden h-px w-full bg-gradient-to-r from-transparent via-amber-200 to-transparent" />
 
-            <div className="flex-1 space-y-4 pt-4 md:pt-0">
-              <strong className="text-theme-900 text-[10px] md:text-sm uppercase tracking-[0.2em] block mb-4">Mr. & Mrs. Rajendren</strong>
-              <p className="text-stone-500 leading-loose text-xs md:text-sm font-medium">
+            <div className="flex-1 space-y-4 pt-4 md:pt-0 flex flex-col items-center">
+              <strong className="text-theme-900 text-[10px] md:text-sm uppercase tracking-[0.2em] block mb-4 text-center">Mr. & Mrs. Rajendren</strong>
+              <p className="text-stone-500 leading-loose text-xs md:text-sm font-medium text-center">
                 No. 422, Aluthmawathu Road,<br />
                 Colombo - 15.
               </p>
               <div className="pt-2">
-                <a href="tel:0778651027" className="inline-block px-6 py-2 bg-white rounded-full border border-amber-200 text-amber-700 font-semibold tracking-widest text-[10px] md:text-xs hover:bg-amber-50 transition-colors shadow-sm">
+                <a href="tel:0778651027" className="inline-block px-6 py-2 bg-white rounded-full border border-amber-200 text-amber-700 font-semibold tracking-widest text-[10px] md:text-xs hover:bg-amber-50 transition-colors shadow-sm text-center">
                   077 - 8651027
                 </a>
               </div>
@@ -997,7 +997,7 @@ export default function WeddingInvitation() {
       {!isOpened && <div className="absolute inset-0 bg-[#f0eceb]/65 pointer-events-none z-0" />}
       <MandalaFrame minimal={isLowPerformanceMode} />
       <FloatingPetals disabled={isLowPerformanceMode} />
-      <AudioPlayer isPlaying={isOpened || isVideoPlaying} src="/background new.mp3" />
+      <AudioPlayer isPlaying={isOpened || isVideoPlaying} src="/Pesamale -  Official Lyric Video  Siri Xander  Arra Aria Khayal Tamil Indie Pop Sony Music Indie.mp3" />
 
       <AnimatePresence mode="wait">
         {!isOpened && !isVideoPlaying ? (
@@ -1089,7 +1089,7 @@ export default function WeddingInvitation() {
                   alt=""
                 />
 
-                <div className="flex flex-col items-center justify-center text-center space-y-4 md:space-y-6 flex-1 w-full relative z-10 mb-[35vh] md:mb-0 -mt-[5vh] md:mt-0">
+                <div className="flex flex-col items-center justify-center text-center space-y-4 md:space-y-6 flex-1 w-full relative z-10 mb-[40vh] md:mb-0 -mt-[15vh] md:mt-0">
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -1220,14 +1220,15 @@ export default function WeddingInvitation() {
                     initial={{ opacity: 0, x: -30 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    className="space-y-8 flex flex-col items-start"
+                    className="space-y-8 flex flex-col items-center text-center"
                   >
-                    <div className="flex flex-col items-start gap-2">
-                      <div className="flex items-center gap-4 mb-1">
+                    <div className="flex flex-col items-center gap-2">
+                      <div className="flex items-center justify-center gap-4 mb-1">
                         <div className="w-8 h-px bg-amber-400" />
                         <span className="text-amber-600 font-bold uppercase tracking-[0.4em] text-[9px] md:text-[11px]">The Venue</span>
+                        <div className="w-8 h-px bg-amber-400" />
                       </div>
-                      <h2 className="font-playball text-[3.5rem] sm:text-[4rem] md:text-[4rem] text-theme-900 leading-[1] drop-shadow-sm ml-[-4px]">
+                      <h2 className="font-playball text-[3.5rem] sm:text-[4rem] md:text-[4rem] text-theme-900 leading-[1] drop-shadow-sm">
                         River Side Hotel Inn
                       </h2>
                       <p className="text-xs md:text-sm text-amber-600 font-bold uppercase tracking-[0.25em]">
@@ -1235,19 +1236,15 @@ export default function WeddingInvitation() {
                       </p>
                     </div>
 
-                    <div className="space-y-6 pt-4 relative">
-                      <div className="absolute left-0 top-0 w-px h-full bg-gradient-to-b from-theme-300 to-transparent" />
-
-                      <div className="pl-8 space-y-4">
-                        <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white shadow-sm border border-amber-100 absolute -left-5 top-0">
-                          <MapPin className="w-4 h-4 text-amber-500" />
+                    <div className="space-y-6 pt-4 relative flex flex-col items-center w-full">
+                      <div className="flex flex-col items-center space-y-4">
+                        <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white shadow-sm border border-amber-100">
+                          <MapPin className="w-5 h-5 text-amber-500" />
                         </div>
-                        <p className="text-lg md:text-xl text-stone-700 font-cinzel font-medium leading-relaxed tracking-wide">
+                        <p className="text-lg md:text-xl text-stone-700 font-cinzel font-medium leading-relaxed tracking-wide text-center">
                           Badulla,<br /> Sri Lanka.
                         </p>
                       </div>
-
-
                     </div>
 
                     <div className="pt-8 w-full md:w-auto">
