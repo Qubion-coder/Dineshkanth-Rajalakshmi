@@ -668,12 +668,26 @@ function WelcomeSection({ guestFullName }: { guestFullName?: string | null }) {
                 <div className="w-12 h-[1px] bg-amber-300 mb-10" />
 
                 {/* Location Block */}
-                <div className="flex flex-col items-center gap-3 w-full">
-                  <div className="w-10 h-10 md:w-12 md:h-12 bg-amber-50 rounded-full flex items-center justify-center border border-amber-200 mb-1 shadow-sm">
+                <div className="flex flex-col items-center gap-3 w-full relative z-10">
+                  <a
+                    href="https://maps.app.goo.gl/2jX64PdWcx1YnPoG7"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative z-10 w-10 h-10 md:w-12 md:h-12 bg-amber-50 rounded-full flex items-center justify-center border border-amber-200 mb-1 shadow-sm hover:bg-amber-100 transition-colors"
+                  >
                     <MapPin className="w-4 h-4 md:w-5 md:h-5 text-amber-600" />
-                  </div>
+                  </a>
                   <p className="font-cinzel font-bold text-xl md:text-3xl text-theme-900 drop-shadow-sm px-2">River Side Hotel Inn</p>
                   <p className="text-[9px] md:text-xs text-stone-500 uppercase tracking-[0.3em] font-bold">Badulla</p>
+                  <a
+                    href="https://maps.app.goo.gl/2jX64PdWcx1YnPoG7"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative z-10 mt-1 flex items-center gap-1.5 text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] text-amber-600 border border-amber-300 bg-amber-50 hover:bg-amber-100 px-4 py-2 rounded-full transition-colors shadow-sm"
+                  >
+                    <MapPin className="w-3 h-3" />
+                    📍 Get Directions
+                  </a>
                 </div>
                 
                 {/* Footer Quote */}
@@ -1249,7 +1263,7 @@ export default function WeddingInvitation() {
 
                     <div className="pt-8 w-full md:w-auto">
                       <button
-                        onClick={() => window.open('https://maps.app.goo.gl/FcbsWeSY738WQTySA', '_blank')}
+                        onClick={() => window.open('https://maps.app.goo.gl/2jX64PdWcx1YnPoG7', '_blank')}
                         className="w-full md:w-auto flex items-center justify-center gap-4 bg-gradient-to-r from-[#c49a45] to-[#e0c086] text-white px-10 py-5 rounded-full font-bold uppercase tracking-[0.2em] text-[10px] md:text-xs hover:from-[#e0c086] hover:to-[#c49a45] hover:shadow-xl hover:shadow-[#e0c086]/30 transition-all duration-300 group"
                       >
                         <MapPin className="w-4 h-4 group-hover:-translate-y-1 transition-transform duration-300" />
@@ -1263,7 +1277,7 @@ export default function WeddingInvitation() {
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
-                    onClick={() => window.open('https://maps.app.goo.gl/FcbsWeSY738WQTySA', '_blank')}
+                    onClick={() => window.open('https://maps.app.goo.gl/2jX64PdWcx1YnPoG7', '_blank')}
                     className="relative w-full max-w-[450px] mx-auto aspect-[4/5] md:aspect-[3/4] rounded-t-full rounded-b-[2rem] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.15)] border-[12px] border-white bg-theme-100 overflow-hidden group cursor-pointer"
                   >
                     <div className="absolute inset-0 border border-amber-200 rounded-t-full rounded-b-[1.5rem] pointer-events-none z-10" />
